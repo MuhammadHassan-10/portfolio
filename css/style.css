@@ -269,19 +269,7 @@ input[type="submit"]:hover {
   background-color: #7dd3fc;
 }
 
-/* ---------- 11. Footer ---------- */
-/* clear: both guarantees the footer never rides up beside a float */
-footer {
-  clear: both;
-  background-color: #111c33;
-  border-top: 1px solid #1f2f4d;
-  text-align: center;
-  padding: 18px;
-  color: #64748b;
-  font-size: 13px;
-}
-
-/* ---------- 12. Small screens: stack floated items ---------- */
+/* ---------- 11. Small screens: stack floated items ---------- */
 @media (max-width: 700px) {
   nav {
     padding: 0 10px;

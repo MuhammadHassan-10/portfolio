@@ -44,7 +44,7 @@ portfolio/
   - Hobbies: images alternate between `float: left` and `float: right`.
   - Skills and Contact: two columns built with floated `.col-half` blocks.
   - Gallery: three floated items per row; the first item of each row uses `clear: left`.
-- A `.clearfix` class and `clear: both` on the footer stop floats from breaking the layout.
+- A `.clearfix` class on containers and a `.clear` spacer (`clear: both`) stop floats from breaking the layout.
 - Files are organised into `css/` and `images/` folders.
 - No JavaScript and no CSS frameworks.
 
