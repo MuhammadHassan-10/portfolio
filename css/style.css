@@ -1,0 +1,328 @@
+/* ==========================================================
+   Muhammad Hassan - Personal Portfolio
+   CS313 Web Engineering - Lab 3
+   One external stylesheet shared by every page.
+   Layouts use float and clear only (no flexbox, grid or frameworks).
+   ========================================================== */
+
+/* ---------- 1. Base: fonts, colours, spacing ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+a {
+  color: #38bdf8;
+}
+
+a:hover {
+  color: #7dd3fc;
+}
+
+h2 {
+  color: #38bdf8;
+  border-left: 5px solid #38bdf8;
+  padding-left: 12px;
+  margin: 36px 0 16px 0;
+}
+
+h2.page-title {
+  margin-top: 0;
+}
+
+h3 {
+  color: #a78bfa;
+  margin: 0 0 8px 0;
+}
+
+.muted {
+  color: #94a3b8;
+}
+
+/* ---------- 2. Clearing floats ---------- */
+/* Any container holding floated children gets this class so it
+   stretches around them instead of collapsing to zero height. */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* An explicit spacer that starts a fresh line below floats. */
+.clear {
+  clear: both;
+}
+
+/* ---------- 3. Header ---------- */
+header {
+  background-color: #111c33;
+  border-bottom: 3px solid #38bdf8;
+  padding: 20px 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #38bdf8;
+}
+
+header p {
+  margin: 4px 0 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ---------- 4. Navigation: horizontal links using float ---------- */
+nav {
+  background-color: #1e293b;
+  padding: 0 30px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  padding: 14px 16px;
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+nav a.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+}
+
+/* ---------- 5. Main content area and cards ---------- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px 20px 50px 20px;
+}
+
+.card {
+  background-color: #172136;
+  border: 1px solid #1f2f4d;
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 18px;
+}
+
+/* ---------- 6. Images ---------- */
+img {
+  max-width: 100%;
+  border: 2px solid #1f2f4d;
+  border-radius: 10px;
+}
+
+/* Profile photo on the home page: floats left, text wraps beside it */
+.profile-photo {
+  float: left;
+  width: 200px;
+  height: 260px;
+  object-fit: cover;
+  margin: 0 24px 10px 0;
+}
+
+/* Hobby images alternate sides: left, right, left ... */
+.float-left {
+  float: left;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 22px 10px 0;
+}
+
+.float-right {
+  float: right;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 0 10px 22px;
+}
+
+/* ---------- 7. Two side-by-side columns using float ---------- */
+.col-half {
+  float: left;
+  width: 48%;
+}
+
+.col-half + .col-half {
+  float: right;
+}
+
+/* ---------- 8. Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #1f2f4d;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #1e293b;
+  color: #38bdf8;
+  width: 32%;
+}
+
+/* ---------- 9. Image gallery: three floated items per row ---------- */
+.gallery-item {
+  float: left;
+  width: 31%;
+  margin: 0 3.5% 22px 0;
+  text-align: center;
+  background-color: #172136;
+  border: 1px solid #1f2f4d;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* The third item in each row has no right margin... */
+.gallery-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+/* ...and the first item of each new row clears the row above,
+   so items of different heights never snag on each other. */
+.gallery-item:nth-child(3n + 1) {
+  clear: left;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* keep faces in portrait photos inside the crop */
+.gallery-item img.portrait {
+  object-position: center top;
+}
+
+.gallery-item h3 {
+  margin: 10px 0 2px 0;
+}
+
+.gallery-item p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ---------- 10. Contact form ---------- */
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #1f2f4d;
+  border-radius: 6px;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+input[type="submit"] {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #7dd3fc;
+}
+
+/* ---------- 11. Footer ---------- */
+/* clear: both guarantees the footer never rides up beside a float */
+footer {
+  clear: both;
+  background-color: #111c33;
+  border-top: 1px solid #1f2f4d;
+  text-align: center;
+  padding: 18px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* ---------- 12. Small screens: stack floated items ---------- */
+@media (max-width: 700px) {
+  nav {
+    padding: 0 10px;
+  }
+
+  nav a {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+
+  .profile-photo,
+  .float-left,
+  .float-right,
+  .col-half,
+  .col-half + .col-half {
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 0 0 16px 0;
+  }
+
+  .profile-photo {
+    height: auto;
+    max-width: 260px;
+  }
+
+  .gallery-item,
+  .gallery-item:nth-child(3n) {
+    width: 48%;
+    margin: 0 4% 18px 0;
+  }
+
+  .gallery-item:nth-child(3n + 1) {
+    clear: none;
+  }
+
+  .gallery-item:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .gallery-item:nth-child(2n + 1) {
+    clear: left;
+  }
+}
